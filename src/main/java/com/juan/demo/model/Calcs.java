@@ -1,6 +1,6 @@
 package com.juan.demo.model;
 
-// use builder pattern.
+// todo: use builder pattern.
 public class Calcs {
     Double max;
     Double min;

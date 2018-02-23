@@ -10,8 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class ControllersConfig {
 
     @Bean
-    public StatsController statsController(final TransacFeignClient transacFeignClient, final StatisticCalculator statisticCalculator){
+    public StatsController statsController(final TransacFeignClient transacFeignClient, final StatisticCalculator statisticCalculator) {
         return new StatsController(transacFeignClient, statisticCalculator);
-
     }
 }

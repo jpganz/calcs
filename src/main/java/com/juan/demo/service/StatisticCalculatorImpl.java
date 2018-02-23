@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 
 public class StatisticCalculatorImpl implements StatisticCalculator {
 
+    //todo: check why one stream results more expensive than this way...
+    //todo: format to have 2 decimals only?
     @Override
     public Calcs getTransacsValues(List<Double> collectedInfo) {
         final Calcs calcs = new Calcs();
@@ -25,5 +27,4 @@ public class StatisticCalculatorImpl implements StatisticCalculator {
         }
         return calcs;
     }
-
 }

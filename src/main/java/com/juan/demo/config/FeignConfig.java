@@ -12,6 +12,4 @@ import org.springframework.context.annotation.Import;
 @EnableFeignClients(clients = {TransacFeignClient.class})
 @Import(FeignAutoConfiguration.class)
 public class FeignConfig {
-
-
 }

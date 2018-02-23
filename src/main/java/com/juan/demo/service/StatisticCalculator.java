@@ -7,5 +7,4 @@ import java.util.List;
 public interface StatisticCalculator {
 
     Calcs getTransacsValues(final List<Double> collectedInfo);
-
 }

@@ -15,6 +15,6 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 public interface TransacFeignClient {
 
-    @RequestMapping(method = GET, value = "/transac", produces = APPLICATION_JSON_VALUE)
+    @RequestMapping(method = GET, value = "/transaction", produces = APPLICATION_JSON_VALUE)
     List<Double> getTransactions();
 }

@@ -15,9 +15,6 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import static com.google.common.base.Predicates.equalTo;
-import static com.google.common.base.Predicates.not;
-import static com.google.common.base.Predicates.or;
-import static springfox.documentation.builders.PathSelectors.regex;
 
 @Configuration
 @EnableSwagger2
@@ -39,7 +36,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .description("Microservice to transfor and calc collected info.")
+                .description("Microservice to transform and calc collected info.")
                 .title("Statistics")
                 .version("1.0")
                 .contact(new Contact("juan", "some url", "jpganz18@gmail.com"))
