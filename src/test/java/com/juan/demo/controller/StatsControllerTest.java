@@ -3,7 +3,6 @@ package com.juan.demo.controller;
 import com.juan.demo.model.Calcs;
 import com.juan.demo.service.StatisticCalculatorService;
 import com.juan.demo.transactions.TransacFeignClient;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -61,5 +60,4 @@ public class StatsControllerTest {
         assertThat(returnedCalcs.getAverage(), is(calcsMade.getAverage()));
         assertThat(returnedCalcs.getSum(), is(TRANSACTION_VALUES.stream().mapToDouble(f -> f.doubleValue()).sum()));
     }
-
 }

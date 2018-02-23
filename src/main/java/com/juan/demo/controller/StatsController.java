@@ -1,6 +1,7 @@
 package com.juan.demo.controller;
 
 import com.codahale.metrics.annotation.Timed;
+import com.juan.demo.model.Calcs;
 import com.juan.demo.service.StatisticCalculatorService;
 import com.juan.demo.transactions.TransacFeignClient;
 import io.swagger.annotations.Api;
@@ -34,13 +35,13 @@ public class StatsController {
     @ApiOperation(value = "Get transaction min, max, average, count and sum for the last 60 seconds")
     @ResponseBody
     @GetMapping(produces = APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity getStatistics() {
-        try{
+    public ResponseEntity<Calcs> getStatistics() {
+        try {
             final List<Double> informationOfLastMinute = transacService.getTransactions();
             return new ResponseEntity<>(statisticCalculatorService.getTransacsValues(informationOfLastMinute), null, OK);
-        }catch(Exception e){
+        } catch (Exception e) {
             //todo: use logger
-            return new ResponseEntity<>("Error calculating the required information", null, INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(null, null, INTERNAL_SERVER_ERROR);
         }
     }
 }

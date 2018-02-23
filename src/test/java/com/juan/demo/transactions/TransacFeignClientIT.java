@@ -18,6 +18,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.io.IOException;
 import java.util.List;
+
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.containing;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
@@ -30,7 +31,7 @@ import static org.springframework.http.HttpStatus.OK;
 
 @RunWith(SpringRunner.class)
 @EnableAutoConfiguration
-@SpringBootTest(classes = { ControllersConfig.class, FeignConfig.class, ServiceConfig.class})
+@SpringBootTest(classes = {ControllersConfig.class, FeignConfig.class, ServiceConfig.class})
 @PropertySource("classpath:application-test.properties")
 @WebAppConfiguration
 public class TransacFeignClientIT {
@@ -59,5 +60,4 @@ public class TransacFeignClientIT {
                                             .withBody("[10.50,32.57,50.75]")
                         ));
     }
-
 }

@@ -23,7 +23,7 @@ public class StatisticCalculatorServiceImpl implements StatisticCalculatorServic
             calcs.setMin(orderedDoubles.get(0));
             calcs.setMax(orderedDoubles.get(size - 1));
             calcs.setSum(sum);
-            calcs.setAverage(sum / size);
+            calcs.setAverage(sum / size); //todo: not sure if format it or not :)
         }
         return calcs;
     }

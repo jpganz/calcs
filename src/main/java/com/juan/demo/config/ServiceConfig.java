@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class ServiceConfig {
 
     @Bean
-    StatisticCalculatorService statisticCalculator(){
+    StatisticCalculatorService statisticCalculator() {
         return new StatisticCalculatorServiceImpl();
     }
 }
