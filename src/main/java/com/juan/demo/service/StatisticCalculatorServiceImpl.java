@@ -5,7 +5,7 @@ import com.juan.demo.model.Calcs;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class StatisticCalculatorImpl implements StatisticCalculator {
+public class StatisticCalculatorServiceImpl implements StatisticCalculatorService {
 
     //todo: check why one stream results more expensive than this way...
     //todo: format to have 2 decimals only?

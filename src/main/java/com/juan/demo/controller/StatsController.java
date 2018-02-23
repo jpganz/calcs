@@ -1,7 +1,7 @@
 package com.juan.demo.controller;
 
 import com.codahale.metrics.annotation.Timed;
-import com.juan.demo.service.StatisticCalculator;
+import com.juan.demo.service.StatisticCalculatorService;
 import com.juan.demo.transactions.TransacFeignClient;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,31 +23,24 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 public class StatsController {
 
     private final TransacFeignClient transacService;
-    private final StatisticCalculator statisticCalculator;
+    private final StatisticCalculatorService statisticCalculatorService;
 
-    public StatsController(final TransacFeignClient transacService, final StatisticCalculator statisticCalculator) {
+    public StatsController(final TransacFeignClient transacService, final StatisticCalculatorService statisticCalculatorService) {
         this.transacService = transacService;
-        this.statisticCalculator = statisticCalculator;
+        this.statisticCalculatorService = statisticCalculatorService;
     }
 
     @Timed
-    @ApiOperation(value = "Get transaction min,max, average,count and sum for the last 60 seconds")
+    @ApiOperation(value = "Get transaction min, max, average, count and sum for the last 60 seconds")
     @ResponseBody
     @GetMapping(produces = APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity getStats() {
-        //informationOfLastMinute = new ArrayList<>();
-        /*Random r = new Random();
-        for(int i = 0; i < 1000000; i++){
-            information.add(r.nextDouble());
-        }
-        information.add(99923232423.23);
-        */
+    public ResponseEntity getStatistics() {
         try{
             final List<Double> informationOfLastMinute = transacService.getTransactions();
-            return new ResponseEntity<>(statisticCalculator.getTransacsValues(informationOfLastMinute), null, OK);
+            return new ResponseEntity<>(statisticCalculatorService.getTransacsValues(informationOfLastMinute), null, OK);
         }catch(Exception e){
             //todo: use logger
+            return new ResponseEntity<>("Error calculating the required information", null, INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<>("Error saving new transaction ", null, INTERNAL_SERVER_ERROR);
     }
 }

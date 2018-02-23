@@ -10,11 +10,11 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @FeignClient(
          name="transac-rest-client",
-         url="http://localhost:8080"
+         url="${transactions.api.url:http://localhost:8080/}"
     )
 
 public interface TransacFeignClient {
 
-    @RequestMapping(method = GET, value = "/transaction", produces = APPLICATION_JSON_VALUE)
+    @RequestMapping(method = GET, value = "transaction", produces = APPLICATION_JSON_VALUE)
     List<Double> getTransactions();
 }

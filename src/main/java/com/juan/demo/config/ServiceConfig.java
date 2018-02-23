@@ -1,7 +1,7 @@
 package com.juan.demo.config;
 
-import com.juan.demo.service.StatisticCalculator;
-import com.juan.demo.service.StatisticCalculatorImpl;
+import com.juan.demo.service.StatisticCalculatorService;
+import com.juan.demo.service.StatisticCalculatorServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class ServiceConfig {
 
     @Bean
-    StatisticCalculator statisticCalculator(){
-        return new StatisticCalculatorImpl();
+    StatisticCalculatorService statisticCalculator(){
+        return new StatisticCalculatorServiceImpl();
     }
 }

@@ -1,6 +1,8 @@
 package com.juan.demo.model;
 
 // todo: use builder pattern.
+// SINCE THE SPECS SHOW 2 DIGITAL NUMBER AND WE ARE NOT HANDLING MONEY CHANGES IS SAFE TO USE DOUBLE
+//
 public class Calcs {
     Double max;
     Double min;

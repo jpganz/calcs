@@ -4,7 +4,7 @@ import com.juan.demo.model.Calcs;
 
 import java.util.List;
 
-public interface StatisticCalculator {
+public interface StatisticCalculatorService {
 
     Calcs getTransacsValues(final List<Double> collectedInfo);
 }
